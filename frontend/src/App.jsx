@@ -1,9 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import {BrowserRouter, Routes, Route} from 'react-router'
-import Signup from './components/signup'
-import Signin from './components/signin'
-import Thanks from './components/thanks'
+import Signup from './components/Signup'
+import Signin from './components/Signin'
+import Thanks from './components/Thanks'
 import Homepage from './components/Homepage'
 function App() {
 
