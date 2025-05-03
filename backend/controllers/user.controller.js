@@ -15,7 +15,7 @@ let signinUser= async (req,res)=>{
         {
             return res.status(400).json({success:false, message:"User not found"})
         }
-        const isPasswordMatched= body.password==user.password;
+        const isPasswordMatched= await bcrypt.compare(body.password, user.password)
         console.log(isPasswordMatched)
         if(!isPasswordMatched)
         {
@@ -55,11 +55,12 @@ let signupUser= async (req,res)=>{
     {
         return res.status(400).json({success:false, message:"User already signed up"})
     }
+    const salt=await bcrypt.genSalt(11);
     try {
         let newUser={
             name: body.name,
             email: body.email,
-            password: body.password,
+            password: await bcrypt.hash(body.password, salt),
             phone: body.phone
         }
         await users.insertOne(newUser);
