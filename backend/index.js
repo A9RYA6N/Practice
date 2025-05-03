@@ -2,7 +2,10 @@ require('dotenv').config();
 const express=require("express")
 const app=express();
 const cors = require('cors');
-app.use(cors());
+app.use(cors({
+    origin: 'https://practice-dmvn.vercel.app/',
+    credentials: true
+}));
 const {userRouter}=require('./routes/user.router')
 const mongoose=require('./db/connection')
 app.use(express.json());
