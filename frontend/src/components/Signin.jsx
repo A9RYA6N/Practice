@@ -11,7 +11,7 @@ const Signin = () => {
             }
             axios({
                 method:"POST",
-                url:"http://localhost:3000/user/signin",
+                url:"https://practice-teal-ten.vercel.app/user/signin",
                 data:apiObj
             }).then((res)=>{
                 localStorage.setItem("token", res.data.token)

@@ -16,7 +16,7 @@ const Signup = () => {
         };
         axios({
             method:"POST",
-            url:"http://localhost:3000/user/signup",
+            url:"https://practice-teal-ten.vercel.app/user/signup",
             data:apiObj,
         }).then((res)=>{
             navigate('/thanks')
