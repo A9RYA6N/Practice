@@ -2,11 +2,12 @@ const users=require('../db/model/user')
 const bcrypt=require('bcryptjs');
 let {validationResult}= require('express-validator')
 const jwt=require('jsonwebtoken')
+const mongoose=require('mongoose')
 let signinUser= async (req,res)=>{
-    let errors= validationResult(req);
-    if(errors && errors.length)
+    let error= validationResult(req).errors;
+    if(error && error.length)
     {
-        return res.status(400).json({success:false,message:errors[0].message})
+        return res.status(400).json({success:false,message:error[0].msg})
     }
     try {
         let body=req.body;
@@ -38,15 +39,16 @@ let signinUser= async (req,res)=>{
     } catch (error) {
         res.status(500).json({ success: false, message: error.message });
     }
-    
 }
+
 let signupUser= async (req,res)=>{
-    let errors= validationResult(req);
+    let error= validationResult(req).errors;
     let body=req.body;
-    if(errors && errors.length)
+    if(error && error.length)
     {
-        return res.status(400).json({success:false, message:errors[0].message})
+        return res.status(400).json({success:false, message:error[0].msg})
     }
+    console.log(error)
     let existingUser= await users.findOne({
         email:body.email
     })
@@ -57,25 +59,29 @@ let signupUser= async (req,res)=>{
     }
     const salt=await bcrypt.genSalt(11);
     try {
-        let newUser={
+        let newUser= new users({
             name: body.name,
             email: body.email,
             password: await bcrypt.hash(body.password, salt),
             phone: body.phone
-        }
-        await users.insertOne(newUser);
-        return res.status(200).json({success:true, message:"User Signed up"})
+        })
+        await newUser.save();
+        return res.status(201).json({success:true, message:"User Signed up"})
     } catch (error) {
-        return res.status(500).json({success:false, message:error.message})
+        return res.status(500).json({success:false, message:error})
     }
 }
+
 let signoutUser=()=>{
     console.log("Post")
 }
+
 let updateUser=()=>{
     console.log("Patch")
 }
+
 let deleteUser=()=>{
     console.log("Delete")
 }
+
 module.exports={signinUser, signoutUser, updateUser, deleteUser, signupUser}

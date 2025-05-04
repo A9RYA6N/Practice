@@ -7,12 +7,13 @@ app.use(cors({
     credentials: true
 }));
 const {userRouter}=require('./routes/user.router')
+const {productRouter}=require('./routes/products.router')
 const mongoose=require('./db/connection')
 app.use(express.json());
 const port=process.env.PORT;
 
 app.use('/user', userRouter)
-
+app.use('/product', productRouter)
 app.use((req,res)=>{
     res.status(404).send(`<html>
     <head>
