@@ -6,7 +6,7 @@ import Thanks from './components/Thanks'
 import Homepage from './components/Homepage'
 import CreateProduct from './components/CreateProduct'
 import Singleproduct from './components/Singleproduct'
-import ProductProvider from './Productcontext'
+import {ProductProvider} from './Productcontext'
 function App() {
 
   return (

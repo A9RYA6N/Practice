@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState } from 'react';
 export const ProductContext=createContext();
 
-export default ProductProvider=({children})=>{
+export const ProductProvider=({children})=>{
     const [products, setProducts]=useState();
     return(<ProductContext.Provider value={{products, setProducts}}>
         {children}
