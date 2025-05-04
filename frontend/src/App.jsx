@@ -5,6 +5,7 @@ import Signup from './components/Signup'
 import Signin from './components/Signin'
 import Thanks from './components/Thanks'
 import Homepage from './components/Homepage'
+import CreateProduct from './components/CreateProduct'
 function App() {
 
   return (
@@ -14,6 +15,7 @@ function App() {
         <Route path='/signin' element={<Signin/>}></Route>
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/thanks' element={<Thanks/>}></Route>
+        <Route path='/createprod' element={<CreateProduct/>}></Route>
       </Routes>
     </BrowserRouter>
   )
