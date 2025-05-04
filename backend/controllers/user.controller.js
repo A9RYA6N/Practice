@@ -72,7 +72,7 @@ let signupUser= async (req,res)=>{
     }
 }
 
-let signoutUser=()=>{
+let signoutUser=(req,res)=>{
     console.log("Post")
 }
 
