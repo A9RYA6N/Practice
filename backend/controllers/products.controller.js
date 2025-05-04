@@ -28,8 +28,14 @@ let createProduct= async (req,res)=>{
     }
 }
 
-let deleteProduct=(req,res)=>{
+let deleteProduct= async (req,res)=>{
     let id=req.params.id;
+    let deletedProd= await products.findByIdAndDelete(id)
+    if(!deletedProd)
+    {
+        res.status(400).json({succes:false, message:"Product not found"})
+    }
+    res.status(200).json({success:true, message:"Product deleted succesfully"})
 }
 
 let getProductbyId= async (req,res)=>{
