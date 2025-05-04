@@ -22,7 +22,10 @@ const CreateProduct = () => {
             axios({
                 method:"POST",
                 url:"https://practice-teal-ten.vercel.app/product",
-                data:apiObj
+                data:apiObj,
+                headers:{
+                    "x-access-token":localStorage.getItem('token')
+                }
             }).then((res)=>{
                 alert('Product has been created');
                 setLoading(false);

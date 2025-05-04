@@ -18,7 +18,10 @@ const Allproducts = ({item}) => {
                     <a onClick={()=>{
                         axios({
                             method:"DELETE",
-                            url:`https://practice-teal-ten.vercel.app/product/${item._id}`
+                            url:`https://practice-teal-ten.vercel.app/product/${item._id}`,
+                            headers:{
+                                "x-access-token":localStorage.getItem('token')
+                            }
                         }).then((res)=>{
                             alert("Product deleted successfully")
                         })
