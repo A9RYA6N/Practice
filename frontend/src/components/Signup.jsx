@@ -9,6 +9,7 @@ const Signup = () => {
     const [phone, setPhone]= useState(0)
     const [loading, setLoading]= useState(false)
     const handleClick=()=>{
+      try {
         setLoading(true);
         const apiObj={
             name:name,
@@ -23,7 +24,13 @@ const Signup = () => {
         }).then((res)=>{
             navigate('/signin');
             setLoading(false);
-        })
+        }).finally(()=>{
+          setLoading(false)
+      })
+      } catch (error) {
+        console.log(error)
+      }
+       
     }
   return (
     <div>

@@ -26,12 +26,11 @@ const CreateProduct = () => {
             }).then((res)=>{
                 alert('Product has been created');
                 setLoading(false);
+            }).finally(()=>{
+                setLoading(false)
             })
         } catch (error) {
             console.log(error)
-        }
-        finally{
-            setLoading(false);
         }
     }
     return (

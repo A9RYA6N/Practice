@@ -6,6 +6,7 @@ import Signin from './components/Signin'
 import Thanks from './components/Thanks'
 import Homepage from './components/Homepage'
 import CreateProduct from './components/CreateProduct'
+import Singleproduct from './components/Singleproduct'
 function App() {
 
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path='/signup' element={<Signup/>}></Route>
         <Route path='/thanks' element={<Thanks/>}></Route>
         <Route path='/createprod' element={<CreateProduct/>}></Route>
+        <Route path="/product/:id" element={<Singleproduct/>} />
       </Routes>
     </BrowserRouter>
   )

@@ -21,12 +21,13 @@ const Signin = () => {
                 localStorage.setItem("token", res.data.token);
                 navigate('/');
             })
+            .finally(()=>{
+                setLoading(false)
+            })
         } catch (error) {
             console.log(error.message)
         }
-        finally{
-            setLoading(false)
-        }
+        
     }
     return (
         <div>

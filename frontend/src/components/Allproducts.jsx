@@ -3,18 +3,12 @@ import { useNavigate } from 'react-router'
 const Allproducts = ({item}) => {
     const navigate=useNavigate()
     return (
-        // <div className='product-div' onClick={()=>navigate(`/${item._id}`)}>
-        //     <img src={item.imgUrl}/>
-        //     <p>{item.name}</p>
-        //     <span>{item.price}</span>
-        //     <button>Buy Now</button>
-        // </div>
         <div class="w-full max-w-sm bg-white border border-gray-200 rounded-lg shadow-sm dark:bg-gray-800 dark:border-gray-700">
-            <a onClick={()=>navigate(`/${item._id}`)}>
+            <a onClick={()=>navigate(`product/${item._id}`)}>
                 <img class="p-8 rounded-t-lg" src={item.imgUrl} alt="product image" />
             </a>
             <div class="px-5 pb-5">
-                <a onClick={()=>navigate(`/${item._id}`)}>
+                <a onClick={()=>navigate(`product/${item._id}`)}>
                     <h5 class="text-xl font-semibold tracking-tight text-gray-900 dark:text-white">{item.name}</h5>
                 </a>
                 <div class="flex items-center justify-between">
