@@ -19,7 +19,7 @@ const Signup = () => {
             url:"https://practice-teal-ten.vercel.app/user/signup",
             data:apiObj,
         }).then((res)=>{
-            navigate('/thanks')
+            navigate('/signin')
         })
     }
   return (
