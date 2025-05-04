@@ -13,6 +13,7 @@ const Homepage = () => {
             setData(res.data.data)
         })
     }, [])
+    console.log(data)
     const navigate=useNavigate();
     let token=localStorage.getItem('token');
     return (
@@ -20,7 +21,7 @@ const Homepage = () => {
             {token ? <div>
                 {data?.length>0 && 
                 data?.map((item)=>{
-                    return(<Allproducts item={item}/>);
+                    return(<Allproducts key={item._id} item={item}/>);
                 })}
             </div> : <Showlogins/>}
         </div>

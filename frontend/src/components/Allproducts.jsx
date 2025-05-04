@@ -1,6 +1,6 @@
 import React from 'react'
 import { useNavigate } from 'react-router'
-const Allproducts = (item) => {
+const Allproducts = ({item}) => {
     const navigate=useNavigate()
     return (
         <div onClick={()=>navigate(`/${item._id}`)}>
